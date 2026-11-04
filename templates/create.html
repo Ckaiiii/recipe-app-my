@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        <h1 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: #2c3e50;">發布新食譜</h1>
+        <form method="post">
+            <div style="margin-bottom: 1.25rem;">
+                <label for="title" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">菜名 (Title)</label>
+                <input type="text" name="title" id="title" value="{{ request.form['title'] }}" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;" placeholder="例：經典蕃茄炒蛋">
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+                <label for="author" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">作者 (Author)</label>
+                <input type="text" name="author" id="author" value="{{ request.form['author'] }}" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;" placeholder="例: Chef Alex">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label for="content" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">食材與做法 (Content)</label>
+                <textarea name="content" id="content" rows="8" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;" placeholder="請列出所需食材與步驟說明...">{{ request.form['content'] }}</textarea>
+            </div>
+
+            <button type="submit" class="btn" style="font-size: 1rem; width: 100%;">發布食譜</button>
+        </form>
+    </div>
+{% endblock %}
